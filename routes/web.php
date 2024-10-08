@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-Route::get('invest',function() {
+Route::get('alunos',function() {
     $lista= \app\models\user::all();
     return view('minha-view',compact('lista'));
 });   
@@ -38,3 +38,7 @@ Route::resource('alunos', AlunoController::class);
 Route::resource('salas', SalaController::class);
 Route::resource('enderecos', EnderecoController::class);
 Route::resource('professores', ProfessorController::class);
+
+use App\Http\Controllers\EstudanteController;
+
+Route::resource('estudantes', EstudanteController::class);
